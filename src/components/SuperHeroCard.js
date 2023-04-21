@@ -1,8 +1,14 @@
 import { useState } from "react";
 
 export const SuperHeroCard = ({ hero }) => {
-  const { name, appearance, image } = hero;
-  const {gender, race, 'eye-color': eyeColor, 'hair-color': hairColor, height, weight } = appearance
+  
+  const { name,  appearance } = hero;
+  const image = hero.image === undefined ? 'imagen default' : hero.image
+  // const appearance = hero.appearance ? hero.appearance : []
+  const { race, 'eye-color': eyeColor, 'hair-color': hairColor, height, weight } =
+         appearance !== undefined ? appearance : {race: 'Super', eyeColor: 'Super', hairColor: 'Super', 
+                                                  height: ['Super'], weight: ['Super'] }
+  const gender = appearance === undefined ? 'super' : appearance.gender
 
   const [showBackCard, setShowBackCard] = useState(true)
   

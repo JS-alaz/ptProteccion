@@ -11,6 +11,7 @@ export const SuperHeroApp = () => {
     return (
         <main className="container">
             <h1>SuperHeroApp</h1>
+            
             <hr />
 
             <Loading />

@@ -5,18 +5,34 @@ import { getSuperHero } from "../store/slices/superHero/thunks";
 
 export const SuperHeroList = () => {
     const dispatch = useDispatch()
-    const {superHero} = useSelector(state => state.superHero)
+    const {superHero, page, isLoading} = useSelector(state => state.superHero)
     
     useEffect(()=>{
         dispatch(getSuperHero())
     },[])
 
   return (
-    // <section className="row rows-cols-1 row-cols-md-3 g-3 grid">
-    <section className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-      {superHero.map((hero) => (
-        <SuperHeroCard key={hero.id} hero={hero} />
-      ))}
-    </section>
+    <>
+      <button
+        disabled={ isLoading }
+        className="btn btn-primary mb-3 mx-3"
+        onClick={ () => dispatch( getSuperHero(- 1) ) }
+      >
+        Prev
+      </button>
+      <button
+        disabled={ isLoading }
+        className="btn btn-primary mb-3"
+        onClick={ () => dispatch( getSuperHero(page) ) }
+      >
+        Next
+      </button>
+
+      <section className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        {superHero.map((hero) => (
+          <SuperHeroCard key={hero.id} hero={hero} />
+        ))}
+      </section>
+    </>
   );
 };
