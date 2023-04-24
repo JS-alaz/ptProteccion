@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const superHeroSlice = createSlice({
     name: 'superHero',
     initialState: {
-        page: 1,
+        page: '',
+        indice: 0,
         isLoading: true,
         superHero: [],
     },
@@ -13,6 +14,7 @@ export const superHeroSlice = createSlice({
         },
         setSuperHero: ( state, {payload}) => {
             state.page = payload.page
+            state.indice = payload.indice
             state.superHero = payload.superHero
             state.isLoading = false
         }

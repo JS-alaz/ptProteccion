@@ -5,7 +5,7 @@ import { getSuperHero } from "../store/slices/superHero/thunks";
 
 export const SuperHeroList = () => {
     const dispatch = useDispatch()
-    const {superHero, page, isLoading} = useSelector(state => state.superHero)
+    const {superHero, page, isLoading, indice} = useSelector(state => state.superHero)
     
     useEffect(()=>{
         dispatch(getSuperHero())
@@ -16,14 +16,14 @@ export const SuperHeroList = () => {
       <button
         disabled={ isLoading }
         className="btn btn-primary mb-3 mx-3"
-        onClick={ () => dispatch( getSuperHero(- 1) ) }
+        onClick={ () => dispatch( getSuperHero('prev', indice) ) }
       >
         Prev
       </button>
       <button
         disabled={ isLoading }
         className="btn btn-primary mb-3"
-        onClick={ () => dispatch( getSuperHero(page) ) }
+        onClick={ () => dispatch( getSuperHero('next', indice) ) }
       >
         Next
       </button>
