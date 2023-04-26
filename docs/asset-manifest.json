@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/ptProteccion/static/js/main.54e4c282.js",
+    "main.js": "/ptProteccion/static/js/main.e7f72e0e.js",
     "index.html": "/ptProteccion/index.html",
-    "main.54e4c282.js.map": "/ptProteccion/static/js/main.54e4c282.js.map"
+    "main.e7f72e0e.js.map": "/ptProteccion/static/js/main.e7f72e0e.js.map"
   },
   "entrypoints": [
-    "static/js/main.54e4c282.js"
+    "static/js/main.e7f72e0e.js"
   ]
 }
