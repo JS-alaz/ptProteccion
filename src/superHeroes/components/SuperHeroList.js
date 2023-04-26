@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { SuperHeroCard } from "./SuperHeroCard";
 import { useEffect } from "react";
-import { getSuperHero } from "../store/slices/superHero/thunks";
+import { getSuperHero } from "../../store/slices/superHero/thunks";
 
 export const SuperHeroList = () => {
     const dispatch = useDispatch()
-    const {superHero, page, isLoading, indice} = useSelector(state => state.superHero)
+    const {superHero, isLoading, indice} = useSelector(state => state.superHero)
     
     useEffect(()=>{
         dispatch(getSuperHero())

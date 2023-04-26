@@ -15,7 +15,6 @@ export const getSuperHero = (page, indice = 1) => {
     }
 
     const superHero = [];
-
     const fetchSuperHero = async(id) => {
         const resp = await fetch(
             `https://www.superheroapi.com/api.php/112776435127359/${id}`
@@ -27,7 +26,7 @@ export const getSuperHero = (page, indice = 1) => {
     for (let i = indice; i <= indice + 10; i++) {
       await fetchSuperHero(i)
     }
-    
+    console.log(superHero)
     dispatch(setSuperHero({ superHero, page, indice }));
   };
 };
