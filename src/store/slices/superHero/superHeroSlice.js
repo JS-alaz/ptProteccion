@@ -7,6 +7,7 @@ export const superHeroSlice = createSlice({
         indice: 0,
         isLoading: true,
         superHero: [],
+        superHeroByName: [],
     },
     reducers: {
         startLoading: ( state ) => {
@@ -17,8 +18,12 @@ export const superHeroSlice = createSlice({
             state.indice = payload.indice
             state.superHero = payload.superHero
             state.isLoading = false
+        },
+        setSuperHeroByName: ( state, {payload}) => {
+            state.isLoading = false
+            state.superHeroByName = payload.results
         }
     } 
 })
 
-export const { startLoading, setSuperHero } = superHeroSlice.actions
+export const { startLoading, setSuperHero, setSuperHeroByName } = superHeroSlice.actions

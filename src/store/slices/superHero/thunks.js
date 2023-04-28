@@ -1,4 +1,4 @@
-import { setSuperHero, startLoading } from "./superHeroSlice";
+import { setSuperHero, setSuperHeroByName, startLoading } from "./superHeroSlice";
 
 export const getSuperHero = (page, indice = 1) => {
   return async (dispatch) => {
@@ -26,7 +26,20 @@ export const getSuperHero = (page, indice = 1) => {
     for (let i = indice; i <= indice + 10; i++) {
       await fetchSuperHero(i)
     }
-    console.log(superHero)
+    
     dispatch(setSuperHero({ superHero, page, indice }));
   };
 };
+
+export const getSuperHeroByName = (name = 'a') => {
+  return async (dispatch) => {
+
+    dispatch(startLoading)
+
+    const resp = await fetch(`https://www.superheroapi.com/api.php/112776435127359/search/${name}`)
+    const {results} = await resp.json()
+
+    dispatch(setSuperHeroByName({results}))
+
+  }
+}
